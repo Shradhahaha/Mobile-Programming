@@ -1,0 +1,57 @@
+/* style.css
+    Mobile-first, clean, responsive stylesheet
+*/
+
+/* Variables */
+:root{
+  --bg: #ffffff;
+  --surface: #f7f8fa;
+  --primary: #0b84ff;
+  --primary-600: #0666d6;
+  --accent: #06b6d4;
+  --muted: #6b7280;
+  --text: #111827;
+  --success: #16a34a;
+  --danger: #ef4444;
+  --radius: 12px;
+  --container-padding: 16px;
+  --shadow-sm: 0 1px 2px rgba(16,24,40,0.05);
+  --shadow-md: 0 6px 18px rgba(16,24,40,0.08);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --line-height: 1.45;
+  --max-width: 1100px;
+}
+
+/* Global reset / base */
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,body{
+  height:100%;
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-sans);
+  line-height:var(--line-height);
+  font-size:16px;
+}
+
+/* Utility containers */
+.container{
+  width:100%;
+  padding: 0 var(--container-padding);
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+
+/* Layout */
+.app{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  gap:24px;
