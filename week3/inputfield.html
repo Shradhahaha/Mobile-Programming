@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery CSS Change</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        input {
+            padding: 8px;
+            border: 2px solid gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>Enter Your Name</h3>
+
+    First Name:
+    <input type="text" id="fname"><br><br>
+
+    Last Name:
+    <input type="text" id="lname">
+
+    <script>
+        $("input").focus(function() {
+            $(this).css({
+                "background-color": "yellow",
+                "border": "2px solid red",
+                "font-size": "18px"
+            });
+        });
+
+        $("input").blur(function() {
+            $(this).css({
+                "background-color": "white",
+                "border": "2px solid gray",
+                "font-size": "14px"
+            });
+        });
+    </script>
+
+</body>
+</html>
