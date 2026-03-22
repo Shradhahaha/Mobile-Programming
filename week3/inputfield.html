@@ -10,6 +10,10 @@
             padding: 8px;
             border: 2px solid gray;
         }
+
+        #formBox {
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -17,13 +21,22 @@
 
     <h3>Enter Your Name</h3>
 
-    First Name:
-    <input type="text" id="fname"><br><br>
+    <!-- Buttons -->
+    <button id="hideBtn">Hide</button>
+    <button id="showBtn">Show</button>
+    <button id="cssBtn">Change CSS</button>
 
-    Last Name:
-    <input type="text" id="lname">
+    <!-- Form Container -->
+    <div id="formBox">
+        First Name:
+        <input type="text" id="fname"><br><br>
+
+        Last Name:
+        <input type="text" id="lname">
+    </div>
 
     <script>
+        // Focus effect
         $("input").focus(function() {
             $(this).css({
                 "background-color": "yellow",
@@ -32,11 +45,37 @@
             });
         });
 
+        // Blur effect
         $("input").blur(function() {
             $(this).css({
                 "background-color": "white",
                 "border": "2px solid gray",
                 "font-size": "14px"
+            });
+        });
+
+        // Hide form
+        $("#hideBtn").click(function() {
+            $("#formBox").hide();
+        });
+
+        // Show form
+        $("#showBtn").click(function() {
+            $("#formBox").show();
+        });
+
+        // Change CSS of form
+        $("#cssBtn").click(function() {
+            $("#formBox").css({
+                "background-color": "#f0f8ff",
+                "padding": "20px",
+                "border": "2px solid blue",
+                "border-radius": "10px"
+            });
+
+            $("input").css({
+                "background-color": "#e6f7ff",
+                "border": "2px solid blue"
             });
         });
     </script>
