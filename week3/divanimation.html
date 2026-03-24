@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Animation Box</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        /* Center button container */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        #box {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 15px;
+
+            background: linear-gradient(45deg, #ff0099, #9794f4, #ddff00);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #ff0099;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #ff0099;
+            color: rgb(255, 189, 227);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="btn-container">
+    <button id="startBtn">Start Animation</button>
+    <button id="stopBtn">Stop Animation</button>
+</div>
+
+<div id="box">THIS IS A BOX</div>
+
+<script>
+$(document).ready(function(){
+
+    var isAnimating = false;
+
+    function animateBox() {
+        if (!isAnimating) return;
+
+        var maxWidth = $(window).width() - $("#box").width();
+        var maxHeight = $(window).height() - $("#box").height();
+
+        $("#box")
+
+        .animate({
+            top: maxHeight,
+            left: 0,
+            opacity: 0.3,
+            width: "200px",
+            height: "200px"
+        }, 2000)
+
+        .animate({
+            left: maxWidth,
+            opacity: 1,
+            width: "150px",
+            height: "150px"
+        }, 2000)
+
+        .animate({
+            top: 0,
+            opacity: 0.3,
+            width: "220px",
+            height: "220px"
+        }, 2000)
+
+        .animate({
+            left: 0,
+            opacity: 1,
+            width: "150px",
+            height: "150px"
+        }, 2000, animateBox); // loop
+    }
+
+    $("#startBtn").click(function(){
+        if (!isAnimating) {
+            isAnimating = true;
+            animateBox();
+        }
+    });
+
+    $("#stopBtn").click(function(){
+        isAnimating = false;
+        $("#box").stop(true); // stops current + queued animations
+    });
+
+});
+</script>
+
+</body>
+</html>
