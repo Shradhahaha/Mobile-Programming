@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Marks Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+        }
+
+        #container {
+            border: 2px solid black;
+            padding: 20px;
+            margin-top: 50px;
+            width: 300px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="container">
+    <h2>Result Calculator</h2>
+
+    <input type="number" id="sub1" placeholder="Subject 1"><br>
+    <input type="number" id="sub2" placeholder="Subject 2"><br>
+    <input type="number" id="sub3" placeholder="Subject 3"><br>
+    <input type="number" id="sub4" placeholder="Subject 4"><br>
+    <input type="number" id="sub5" placeholder="Subject 5"><br>
+
+    <button onclick="calculateResult()">Calculate</button>
+
+    <p id="total"></p>
+    <p id="percentage"></p>
+    <p id="grade"></p>
+    <p id="status"></p>
+</div>
+
+<script>
+function calculateResult() {
+
+    let s1 = Number(document.getElementById("sub1").value);
+    let s2 = Number(document.getElementById("sub2").value);
+    let s3 = Number(document.getElementById("sub3").value);
+    let s4 = Number(document.getElementById("sub4").value);
+    let s5 = Number(document.getElementById("sub5").value);
+
+    // Validation
+    if (s1 === "" || s2 === "" || s3 === "" || s4 === "" || s5 === "") {
+        alert("Please enter all marks!");
+        return;
+    }
+
+    let total = s1 + s2 + s3 + s4 + s5;
+    let percent = total / 5;
+
+    // Grade logic
+    let grade = "";
+    if (percent >= 80) grade = "A";
+    else if (percent >= 60) grade = "B";
+    else if (percent >= 50) grade = "C";
+    else if (percent >= 40) grade = "D";
+    else grade = "F";
+
+    // Pass/Fail
+    let status = (s1 >= 40 && s2 >= 40 && s3 >= 40 && s4 >= 40 && s5 >= 40) 
+        ? "PASS" 
+        : "FAIL";
+
+    // Output
+    document.getElementById("total").innerHTML = "Total Marks: " + total;
+    document.getElementById("percentage").innerHTML = "Percentage: " + percent.toFixed(2) + "%";
+    document.getElementById("grade").innerHTML = "Grade: " + grade;
+    document.getElementById("status").innerHTML = "Result: " + status;
+}
+</script>
+
+</body>
+</html>

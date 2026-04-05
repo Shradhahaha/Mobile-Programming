@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Demo</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+        }
+
+        .main {
+            margin: 20px;
+        }
+
+        #box {
+            height: 150px;
+            width: 150px;
+            background-color: lightblue;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+
+            // Start Animation
+            $("#start").click(function () {
+                $("#box")
+                    .animate({ top: '200px', opacity: 0.5 }, "slow")
+                    .css("background-color", "lightcoral")
+                    .animate({ left: '200px', fontSize: '2em' }, "slow")
+                    .css("background-color", "orange")
+                    .animate({ top: '0px', opacity: 1 }, "slow")
+                    .css("background-color", "yellow")
+                    .animate({ left: '0px', fontSize: '1em' }, "slow")
+                    .css("background-color", "lightblue");
+            });
+
+            // Stop Animation
+            $("#stop").click(function () {
+                $("#box").stop();
+            });
+
+            // Reset
+            $("#reset").click(function () {
+                $("#box").stop().css({
+                    top: "0px",
+                    left: "0px",
+                    opacity: 1,
+                    fontSize: "1em",
+                    backgroundColor: "lightblue"
+                });
+            });
+
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <div class="main">
+        <button id="start">Start Animation</button>
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
+    </div>
+
+    <div id="box">
+        <p>Hello</p>
+    </div>
+
+</body>
+
+</html>

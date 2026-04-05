@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1 Change Text -->
+    <div class="main">
+        <h1 id="text1">Hello, World!</h1>
+        <button onclick="changeText()">Change Text</button>
+    </div>
+
+    <!-- 2 Hide/Show -->
+    <div class="main">
+        <h1 id="text2">Toggle Me</h1>
+        <button onclick="toggleText()">Hide/Show</button>
+    </div>
+
+    <!-- 3 Image Toggle -->
+    <div class="main">
+        <button onclick="lightOn()">Turn ON</button>
+        <img id="bulb" src="C:\Users\shrad\OneDrive\Desktop\bulboff.jpg" width="120">
+        <button onclick="lightOff()">Turn OFF</button>
+    </div>
+
+    <!-- 4 Background Color -->
+    <div class="main" id="box4">
+        <h1>Background Change</h1>
+        <button onclick="changeBg()">Change Color</button>
+    </div>
+
+    <!-- 5 Text Color -->
+    <div class="main">
+        <h1 id="text5">Color Me</h1>
+        <button onclick="changeColor()">Change Text Color</button>
+    </div>
+
+    <!-- 6 Input Greeting -->
+    <div class="main">
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <button onclick="greetUser()">Greet</button>
+        <p id="greetMsg"></p>
+    </div>
+
+    <!-- 7 Alert Box -->
+    <div class="main">
+        <button onclick="showAlert()">Click for Alert</button>
+    </div>
+
+    <!-- 8 Open Website -->
+    <div class="main">
+        <button onclick="openGoogle()">Open Google</button>
+    </div>
+
+    <!-- 9 Counter -->
+    <div class="main">
+        <h1 id="counter">0</h1>
+        <button onclick="increase()">Increase</button>
+        <button onclick="decrease()">Decrease</button>
+    </div>
+
+    <!-- 10 Dark Mode Toggle -->
+    <div class="main">
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </div>
+
+<script>
+    // 1 Change Text
+    function changeText() {
+        document.getElementById("text1").innerHTML = "Good Morning!";
+    }
+
+    // 2 Toggle Text
+    function toggleText() {
+        let el = document.getElementById("text2");
+        if (el.style.display === "none") {
+            el.style.display = "block";
+        } else {
+            el.style.display = "none";
+        }
+    }
+
+    // 3 Light bulb
+    function lightOn() {
+        document.getElementById("bulb").src = "C:\Users\shrad\OneDrive\Desktop\bulbon.jpg";
+    }
+
+    function lightOff() {
+        document.getElementById("bulb").src = "C:\Users\shrad\OneDrive\Desktop\bulboff.jpg";
+    }
+
+    // 4 Background color
+    function changeBg() {
+        document.getElementById("box4").style.backgroundColor = "lightgreen";
+    }
+
+    // 5 Text color
+    function changeColor() {
+        document.getElementById("text5").style.color = "red";
+    }
+
+    // 6 Greeting
+    function greetUser() {
+        let name = document.getElementById("nameInput").value;
+        document.getElementById("greetMsg").innerHTML = "Hello, " + name + "!";
+    }
+
+    // 7 Alert
+    function showAlert() {
+        alert("Button Clicked!");
+    }
+
+    // 8 Open Google
+    function openGoogle() {
+        window.open("https://www.google.com", "_blank");
+    }
+
+    // 9 Counter
+    let count = 0;
+
+    function increase() {
+        count++;
+        document.getElementById("counter").innerHTML = count;
+    }
+
+    function decrease() {
+        count--;
+        document.getElementById("counter").innerHTML = count;
+    }
+
+    // 10 Dark Mode
+    function toggleDarkMode() {
+        if (document.body.style.backgroundColor === "black") {
+            document.body.style.backgroundColor = "white";
+            document.body.style.color = "black";
+        } else {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        }
+    }
+</script>
+
+</body>
+</html>

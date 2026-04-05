@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Demo</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .main {
+            padding: 20px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+
+            // Hide
+            $("#hideBtn").click(function () {
+                $("h1").fadeOut();
+            });
+
+            // Show
+            $("#showBtn").click(function () {
+                $("h1").fadeIn();
+            });
+
+            // Toggle
+            $("#toggleBtn").click(function () {
+                $("h1").fadeToggle();
+            });
+
+            // Change CSS
+            $("#cssBtn").click(function () {
+                $("h1").css({
+                    "color": "blue",
+                    "font-size": "40px"
+                });
+            });
+
+            // Reset
+            $("#resetBtn").click(function () {
+                $("h1").show().css({
+                    "color": "black",
+                    "font-size": "32px"
+                });
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="main">
+        <h1>Welcome to Mobile Programming</h1>
+
+        <button id="hideBtn">Hide</button>
+        <button id="showBtn">Show</button>
+        <button id="toggleBtn">Toggle</button>
+        <button id="cssBtn">Change Style</button>
+        <button id="resetBtn">Reset</button>
+    </div>
+
+</body>
+
+</html>
