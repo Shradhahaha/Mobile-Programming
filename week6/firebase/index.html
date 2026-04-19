@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Firebase CRUD Example</title>
+</head>
+<body>
+
+  <h1>Firebase Realtime DB CRUD</h1>
+
+  <!-- CREATE -->
+  <h2>Add User</h2>
+  <input type="text" id="uid" placeholder="User ID">
+  <input type="text" id="uname" placeholder="Name">
+  <input type="email" id="uemail" placeholder="Email">
+  <button onclick="createUser()">Add</button>
+
+  <!-- READ -->
+  <h2>Users List</h2>
+  <button onclick="getUsers()">Fetch Users</button>
+  <ul id="userList"></ul>
+
+  <!-- UPDATE -->
+  <h2>Update User</h2>
+  <input type="text" id="uidUpdate" placeholder="User ID">
+  <input type="text" id="unameUpdate" placeholder="New Name">
+  <input type="email" id="uemailUpdate" placeholder="New Email">
+  <button onclick="updateUser()">Update</button>
+
+  <!-- DELETE -->
+  <h2>Delete User</h2>
+  <input type="text" id="uidDelete" placeholder="User ID">
+  <button onclick="deleteUser()">Delete</button>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
